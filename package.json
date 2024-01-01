@@ -49,6 +49,7 @@
 		"cmdk-sv": "^0.0.12",
 		"date-fns": "^3.0.6",
 		"lucide-react": "^0.303.0",
+		"lucide-solid": "^0.303.0",
 		"lucide-svelte": "^0.303.0",
 		"mode-watcher": "^0.1.2",
 		"tailwind-merge": "^2.2.0",

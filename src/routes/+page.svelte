@@ -1,6 +1,5 @@
-<script>
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+	import Typography from '$lib/components/Typography.svelte';
 </script>
 
 <svelte:head>
@@ -8,49 +7,35 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+<section class="p-4 w-full md:w-2/3 flex justify-center flex-col m-auto">
+	<Typography variant="h1">歡迎來到存石計算機</Typography>
 
-		to your new<br />SvelteKit app
-	</h1>
+	<Typography>
+		這是根據巴哈貼文
+		<a
+			class="text-cyan-500"
+			href="https://forum.gamer.com.tw/C.php?bsn=38898&snA=4506"
+			target="_blank"
+			>【工具】全華語圈最好用的青輝石計算器！小春、吹雪和優香都適合！《9/18 5.0大改版》</a
+		>
+		所做的網頁版存石計算機
+	</Typography>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+	<Typography>
+		<a
+			href="https://docs.google.com/spreadsheets/d/1HxwR8CqAw7UMm8M2c74EEXU7RqhnIIIeEZi8XK8aMRU/edit#gid=2117524808"
+			target="_blank"
+			class="text-cyan-500">原 excel 版本計算器</a
+		>
+	</Typography>
+	<Typography variant="h2" class="mt-4">專案資訊</Typography>
+	<Typography variant="h3" class="mt-4">特別感謝</Typography>
+	<Typography variant="h3" class="mt-4">問題回報與功能討論</Typography>
+	<Typography variant="h3" class="mt-4">更新紀錄</Typography>
+	<Typography variant="h3" class="mt-4">Roadmap</Typography>
+	<Typography variant="h3" class="mt-4">Contributors</Typography>
+	
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
 </style>

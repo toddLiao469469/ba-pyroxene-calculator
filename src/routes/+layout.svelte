@@ -1,12 +1,14 @@
 <script>
+	import  Header  from '$lib/components/Header.svelte';
 	import './styles.css';
-	import ColorModeToggle from '$lib/components/ColorModeToggle.svelte';
+
 	import { ModeWatcher } from 'mode-watcher';
 </script>
 
 <div class="app">
 	<ModeWatcher />
-	<ColorModeToggle />
+	
+	<Header />
 	<main>
 		<slot />
 	</main>
