@@ -6,10 +6,10 @@
 	export let value: RaidRank;
 
 	const raidRankList = [
-		{ value: RaidRank.RANK_1, label: '一檔' },
-		{ value: RaidRank.RANK_2, label: '二檔' },
-		{ value: RaidRank.RANK_3, label: '三檔' },
-		{ value: RaidRank.RANK_4, label: '四檔' }
+		{ value: RaidRank.Rank_1, label: '一檔' },
+		{ value: RaidRank.Rank_2, label: '二檔' },
+		{ value: RaidRank.Rank_3, label: '三檔' },
+		{ value: RaidRank.Rank_4, label: '四檔' }
 	];
 
 	const onSelectedChange = (event: Selected<RaidRank> | undefined) => {

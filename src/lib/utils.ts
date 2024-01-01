@@ -62,13 +62,13 @@ export const flyAndScale = (
 export const getMonthlyCardPyroxene = (monthlyCard: MonthlyCard, numbersOfDay: number): number => {
 	const numbersOfMonths = Math.floor(numbersOfDay / 30);
 	switch (monthlyCard) {
-		case MonthlyCard.BOTH:
+		case MonthlyCard.Both:
 			return 60 * numbersOfDay + 568 * numbersOfMonths;
-		case MonthlyCard.BIG:
+		case MonthlyCard.Big:
 			return 40 * numbersOfDay + 392 * numbersOfMonths;
-		case MonthlyCard.SMALL:
+		case MonthlyCard.Small:
 			return 20 * numbersOfDay + 176 * numbersOfMonths;
-		case MonthlyCard.NONE:
+		case MonthlyCard.None:
 			return 0;
 		default:
 			return 0;
@@ -83,13 +83,13 @@ export const getSystemPyroxene = (numbersOfDay: number): number => {
 
 export const getRaidPyroxene = (raidRank: RaidRank): number => {
 	switch (raidRank) {
-		case RaidRank.RANK_1:
+		case RaidRank.Rank_1:
 			return 1200;
-		case RaidRank.RANK_2:
+		case RaidRank.Rank_2:
 			return 1000;
-		case RaidRank.RANK_3:
+		case RaidRank.Rank_3:
 			return 800;
-		case RaidRank.RANK_4:
+		case RaidRank.Rank_4:
 			return 600;
 		default:
 			return 0;

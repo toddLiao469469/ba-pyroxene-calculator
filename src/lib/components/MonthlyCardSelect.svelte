@@ -4,10 +4,10 @@
 	import { MonthlyCard } from '$lib/types';
 
 	const monthlyCardList = [
-		{ value: MonthlyCard.BOTH, label: '大小月卡' },
-		{ value: MonthlyCard.BIG, label: '大月卡' },
-		{ value: MonthlyCard.SMALL, label: '小月卡' },
-		{ value: MonthlyCard.NONE, label: '無' }
+		{ value: MonthlyCard.Both, label: '大小月卡' },
+		{ value: MonthlyCard.Big, label: '大月卡' },
+		{ value: MonthlyCard.Small, label: '小月卡' },
+		{ value: MonthlyCard.None, label: '無' }
 	];
 	export let value: MonthlyCard;
 
