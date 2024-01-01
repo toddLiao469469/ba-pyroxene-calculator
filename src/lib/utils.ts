@@ -5,7 +5,7 @@ import type { TransitionConfig } from 'svelte/transition';
 
 import { MonthlyCard, RaidRank } from './types';
 
-import { EventCategory, type Event } from '$lib/data/event';
+import { EventType, type IEvent } from '$lib/data/event';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -96,19 +96,20 @@ export const getRaidPyroxene = (raidRank: RaidRank): number => {
 	}
 };
 
-export const getEventPyroxene = (event: Event, raidRank: RaidRank): number => {
-	if (event.pyroxene) {
-		return event!.pyroxene;
-	}
-
-	switch (event.category) {
-		case EventCategory.Raid:
+export const getEventPyroxene = (
+	event: IEvent,
+	raidRank: RaidRank,
+	questCompletedRate: number = 1
+): number => {
+	switch (event.eventType) {
+		case EventType.Raid:
 			return getRaidPyroxene(raidRank);
-		case EventCategory.EliminationRaid:
-			return 500;
-		case EventCategory.Event:
-			return 2000;
+		case EventType.Challenge:
+			return (event.pyroxene || 0) * questCompletedRate;
 		default:
-			return 0;
+			if (event.pyroxene) {
+				return event.pyroxene;
+			}
 	}
+	return 0;
 };
