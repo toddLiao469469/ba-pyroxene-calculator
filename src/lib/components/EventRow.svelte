@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { differenceInCalendarDays, format } from 'date-fns/fp';
-	import { Input } from '$lib/components/ui/input';
 	import type { RaidRank } from '$lib/types';
 	import { cn, getEventPyroxene } from '$lib/utils';
 	import { EventType, type IEvent, RaidArmorType } from '$lib/data/event';
@@ -48,7 +47,7 @@
 		{days >= 0 ? days : 0}
 	</p>
 
-	<p class={`col-span-4 flex flex-col ${rowColor}`}>
+	<p class={`col-span-6 flex flex-col ${rowColor} p-2`}>
 		{#if Boolean(event.description)}
 			<p>{event.name}</p>
 			<p class="font-bold">{event.description}</p>
@@ -57,7 +56,6 @@
 		{/if}
 	</p>
 	<p class="col-span-2">{getEventPyroxene(event, raidRank)}</p>
-	<p class="col-span-2"><Input /></p>
 	<p class="col-span-2">
 		<span
 			class:text-rose-400={days >= 0 &&

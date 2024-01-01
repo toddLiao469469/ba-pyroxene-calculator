@@ -39,20 +39,48 @@ export const systemPyroxene = derived(daysOfCalculation, ($daysOfCalculation) =>
 	getSystemPyroxene($daysOfCalculation)
 );
 
-export const totalPyroxene = derived(
-	[pyroxene, pyroxeneOfArena, pyroxeneOfMonthlyCard, systemPyroxene],
-	([{ initPyroxene }, $pyroxeneOfArena, $pyroxeneOfMonthlyCard, $systemPyroxene]) =>
-		initPyroxene + $pyroxeneOfArena + $pyroxeneOfMonthlyCard + $systemPyroxene
-);
-
 export const pyroxeneOfEvents = derived(pyroxene, ($pyroxene) => {
 	const includedEvents = events.filter((event) => {
+		if(!$pyroxene.targetDate?.toDate()){
+			return false;
+		}
 		const date = new Date(event.date);
 
 		return isBefore($pyroxene.targetDate.toDate(), date) && isAfter(today, date);
 	});
 	const rate = $pyroxene.questCompletedRate / 100;
-	return includedEvents.reduce((acc, event) => {
-		return acc + getEventPyroxene(event, $pyroxene.raidRank, rate);
-	}, 0);
+
+	return {
+		basicPyroxene: includedEvents.reduce((acc, event) => {
+			return acc + getEventPyroxene(event, $pyroxene.raidRank, 1);
+		}, 0),
+		pyroxene: includedEvents.reduce((acc, event) => {
+			return acc + getEventPyroxene(event, $pyroxene.raidRank, rate);
+		}, 0)
+	};
+});
+
+export const totalPyroxene = derived(
+	[pyroxene, pyroxeneOfArena, pyroxeneOfMonthlyCard, systemPyroxene, pyroxeneOfEvents],
+	([
+		{ initPyroxene },
+		$pyroxeneOfArena,
+		$pyroxeneOfMonthlyCard,
+		$systemPyroxene,
+		$pyroxeneOfEvents
+	]) =>
+		initPyroxene +
+		$pyroxeneOfArena +
+		$pyroxeneOfMonthlyCard +
+		$systemPyroxene +
+		$pyroxeneOfEvents.pyroxene
+);
+
+export const totalAvailableRolls = derived(totalPyroxene, ($totalPyroxene) => {
+	const rolls = Math.floor($totalPyroxene / 120);
+	const guarant = Math.floor(rolls / 200);
+	return {
+		guarant,
+		restRolls: rolls - guarant * 200
+	};
 });

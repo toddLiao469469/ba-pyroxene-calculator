@@ -23,7 +23,7 @@
 		class="w-40 flex justify-center items-center"
 		class:text-primary={currentPath === '/pyroxene-calculator'}
 	>
-		<a href="/pyroxene-calculator"> 石頭計算機 </a>
+		<a href="/pyroxene-calculator"> 青輝石計算機 </a>
 	</div>
 	<ColorModeToggle class="ml-auto mr-4" />
 </header>
