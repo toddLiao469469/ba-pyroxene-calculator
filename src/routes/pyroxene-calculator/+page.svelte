@@ -11,7 +11,6 @@
 	import EventTable from '$lib/views/EventTable.svelte';
 
 	import { pyroxene } from '$store/pyroxene';
-
 </script>
 
 <div class="px-4 w-full md:w-4/5 lg:w-2/3 mx-auto">
@@ -20,7 +19,6 @@
 
 		<div class="grid gap-y-12 items-center mt-12">
 			<div class="grid grid-cols-2 gap-y-2">
-
 				<Label for="initPyroxene">現在擁有的青輝石</Label>
 				<Input class="w-full" type="number" bind:value={$pyroxene.initPyroxene} />
 
@@ -38,7 +36,6 @@
 
 				<Label>活動挑戰任務完成比率 : {$pyroxene.questCompletedRate}%</Label>
 				<Slider bind:value={$pyroxene.questCompletedRate} max={100} step={1} />
-
 			</div>
 
 			<div>

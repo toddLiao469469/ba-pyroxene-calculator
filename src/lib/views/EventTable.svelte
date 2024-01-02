@@ -1,12 +1,13 @@
 <script lang="ts">
 	import EventRow from '$lib/components/EventRow.svelte';
+	import { TW_TIMEZONE } from '$lib/contants';
 	import { events } from '$lib/data/event';
 	import { pyroxene } from '$store/pyroxene';
 
-	$: targetDate = $pyroxene?.targetDate?.toDate() ;
+	$: targetDate = $pyroxene?.targetDate?.toDate(TW_TIMEZONE);
 </script>
 
-<div >
+<div>
 	<div class="grid grid-cols-12 gap-x-2 gap-y-4 max-w-4xl">
 		<p class="hidden col-span-1 lg:block">日期</p>
 		<p class="hidden col-span-1 lg:block">天數</p>

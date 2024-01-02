@@ -1,11 +1,12 @@
+import { getEventPyroxene, getMonthlyCardPyroxene, getSystemPyroxene } from '$lib/utils';
+import { derived, writable } from 'svelte/store';
+import { fromDate, type DateValue } from '@internationalized/date';
+import { addDays, differenceInCalendarDays, isBefore, isAfter } from 'date-fns/fp';
+
 import { browser } from '$app/environment';
 import { events } from '$lib/data/event';
 import { MonthlyCard, RaidRank } from '$lib/types';
-import { getEventPyroxene, getMonthlyCardPyroxene, getSystemPyroxene } from '$lib/utils';
-import { fromDate } from '@internationalized/date';
-
-import { addDays, differenceInCalendarDays, isBefore, isAfter } from 'date-fns/fp';
-import { derived, writable } from 'svelte/store';
+import { TW_TIMEZONE } from '$lib/contants';
 
 const today = new Date();
 
@@ -27,21 +28,30 @@ const storedPyroxene = browser
 				...JSON.parse(localStorage.getItem('pyroxene') as string),
 				targetDate: fromDate(
 					new Date(JSON.parse(localStorage.getItem('pyroxene') as string).targetDate),
-					'Asia/Taipei'
+					TW_TIMEZONE
 				)
 			}
 		: null
 	: null;
 
+interface PyroxeneStore {
+	initPyroxene: string;
+	dailyPyroxeneOfArena: string;
+	ticket: number;
+	targetDate: DateValue;
+	raidRank: RaidRank;
+	monthlyCard: MonthlyCard;
+	questCompletedRate: number;
+}
 
-export const pyroxene = writable(
+export const pyroxene = writable<PyroxeneStore>(
 	storedPyroxene
 		? storedPyroxene
 		: {
 				initPyroxene: 24_000,
 				dailyPyroxeneOfArena: '45',
 				ticket: 0,
-				targetDate: fromDate(addDays(30)(today), 'Asia/Taipei'),
+				targetDate: fromDate(addDays(30)(today), TW_TIMEZONE),
 				raidRank: RaidRank.Rank_1,
 				monthlyCard: MonthlyCard.Both,
 				questCompletedRate: 100
@@ -52,7 +62,7 @@ pyroxene.subscribe((value) => {
 	if (browser) {
 		const draftData = {
 			...value,
-			targetDate: value.targetDate?.toDate()
+			targetDate: value.targetDate?.toDate(TW_TIMEZONE)
 		};
 
 		localStorage.setItem('pyroxene', JSON.stringify(draftData));
@@ -60,7 +70,7 @@ pyroxene.subscribe((value) => {
 });
 
 export const daysOfCalculation = derived<typeof pyroxene, number>(pyroxene, ($pyroxene) => {
-	return differenceInCalendarDays(today)($pyroxene.targetDate?.toDate());
+	return differenceInCalendarDays(today)($pyroxene.targetDate?.toDate(TW_TIMEZONE));
 });
 
 export const pyroxeneOfArena = derived(
@@ -82,12 +92,12 @@ export const systemPyroxene = derived(daysOfCalculation, ($daysOfCalculation) =>
 
 export const pyroxeneOfEvents = derived(pyroxene, ($pyroxene) => {
 	const includedEvents = events.filter((event) => {
-		if (!$pyroxene.targetDate?.toDate()) {
+		if (!$pyroxene.targetDate?.toDate(TW_TIMEZONE)) {
 			return false;
 		}
 		const date = new Date(event.date);
 
-		return isBefore($pyroxene.targetDate.toDate(), date) && isAfter(today, date);
+		return isBefore($pyroxene.targetDate.toDate(TW_TIMEZONE), date) && isAfter(today, date);
 	});
 	const rate = $pyroxene.questCompletedRate / 100;
 
@@ -110,7 +120,7 @@ export const totalPyroxene = derived(
 		$systemPyroxene,
 		$pyroxeneOfEvents
 	]) =>
-		initPyroxene +
+		Number(initPyroxene) +
 		$pyroxeneOfArena +
 		$pyroxeneOfMonthlyCard +
 		$systemPyroxene +
