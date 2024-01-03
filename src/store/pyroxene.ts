@@ -1,4 +1,9 @@
-import { getEventPyroxene, getMonthlyCardPyroxene, getSystemPyroxene } from '$lib/utils';
+import {
+	getEventPyroxene,
+	getMonthlyCardPyroxene,
+	getSystemPyroxene,
+	pyroxeneToRolls
+} from '$lib/utils';
 import { derived, writable } from 'svelte/store';
 import { fromDate, type DateValue } from '@internationalized/date';
 import { addDays, differenceInCalendarDays, isBefore, isAfter } from 'date-fns/fp';
@@ -42,6 +47,7 @@ interface PyroxeneStore {
 	raidRank: RaidRank;
 	monthlyCard: MonthlyCard;
 	questCompletedRate: number;
+	recruitmentTicket: number;
 }
 
 export const pyroxene = writable<PyroxeneStore>(
@@ -54,7 +60,8 @@ export const pyroxene = writable<PyroxeneStore>(
 				targetDate: fromDate(addDays(30)(today), TW_TIMEZONE),
 				raidRank: RaidRank.Rank_1,
 				monthlyCard: MonthlyCard.Both,
-				questCompletedRate: 100
+				questCompletedRate: 100,
+				recruitmentTicket: 0
 			}
 );
 
@@ -127,11 +134,8 @@ export const totalPyroxene = derived(
 		$pyroxeneOfEvents.pyroxene
 );
 
-export const totalAvailableRolls = derived(totalPyroxene, ($totalPyroxene) => {
-	const rolls = Math.floor($totalPyroxene / 120);
-	const guarant = Math.floor(rolls / 200);
-	return {
-		guarant,
-		restRolls: rolls - guarant * 200
-	};
-});
+export const totalAvailableRolls = derived(
+	[totalPyroxene, pyroxene],
+	([$totalPyroxene, { recruitmentTicket }]) =>
+		pyroxeneToRolls($totalPyroxene + recruitmentTicket * 120)
+);

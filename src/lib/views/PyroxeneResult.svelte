@@ -7,9 +7,7 @@
 		pyroxeneOfArena,
 		pyroxeneOfEvents,
 		daysOfCalculation,
-
 		totalAvailableRolls
-
 	} from '$store/pyroxene';
 
 	import { format } from 'date-fns/fp';
@@ -63,12 +61,13 @@
 		<p class="col-span-2">
 			= {$totalPyroxene} 青輝石
 		</p>
-	</div>
-
-	<div>
-		=
-		{$totalAvailableRolls.guarant} 井
-		+
-		{$totalAvailableRolls.restRolls} 單抽
+		<p class="col-span-2">
+			+ {$pyroxene.recruitmentTicket} 召募券
+		</p>
+		<p class="col-span-2">
+			=
+			{$totalAvailableRolls.guarantee} 井 +
+			{$totalAvailableRolls.restRolls} 單抽
+		</p>
 	</div>
 </div>

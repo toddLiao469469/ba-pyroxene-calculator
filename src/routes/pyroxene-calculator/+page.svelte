@@ -18,24 +18,36 @@
 		<Typography variant="h1">青輝石計算機</Typography>
 
 		<div class="grid gap-y-12 items-center mt-12">
-			<div class="grid grid-cols-2 gap-y-2">
-				<Label for="initPyroxene">現在擁有的青輝石</Label>
-				<Input class="w-full" type="number" bind:value={$pyroxene.initPyroxene} />
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-12">
+				<div class="input-container">
+					<Label for="initPyroxene">現在擁有的青輝石</Label>
+					<Input class="w-full" type="number" bind:value={$pyroxene.initPyroxene} />
+				</div>
+				<div class="input-container">
+					<Label for="initPyroxene">現在擁有的召募券</Label>
+					<Input class="w-full" type="number" bind:value={$pyroxene.recruitmentTicket} />
+				</div>
+				<div class="input-container">
+					<Label for="daysValue">要存到的日期</Label>
+					<Calendar bind:value={$pyroxene.targetDate}></Calendar>
+				</div>
+				<div class="input-container">
+					<Label>競技場每日青輝石</Label>
+					<ArenaRankSelect bind:value={$pyroxene.dailyPyroxeneOfArena} />
+				</div>
+				<div class="input-container">
+					<Label>總力戰檔位</Label>
+					<RaidRankSelect bind:value={$pyroxene.raidRank} />
+				</div>
+				<div class="input-container">
+					<Label>有無買月卡</Label>
+					<MonthlyCardSelect bind:value={$pyroxene.monthlyCard} />
+				</div>
 
-				<Label for="daysValue">要存到的日期</Label>
-				<Calendar bind:value={$pyroxene.targetDate}></Calendar>
-
-				<Label>競技場每日青輝石</Label>
-				<ArenaRankSelect bind:value={$pyroxene.dailyPyroxeneOfArena} />
-
-				<Label>總力戰檔位</Label>
-				<RaidRankSelect bind:value={$pyroxene.raidRank} />
-
-				<Label>有無買月卡</Label>
-				<MonthlyCardSelect bind:value={$pyroxene.monthlyCard} />
-
-				<Label>活動挑戰任務完成比率 : {$pyroxene.questCompletedRate}%</Label>
-				<Slider bind:value={$pyroxene.questCompletedRate} max={100} step={1} />
+				<div class="input-container">
+					<Label>活動挑戰任務完成比率 : {$pyroxene.questCompletedRate}%</Label>
+					<Slider bind:value={$pyroxene.questCompletedRate} max={100} step={1} />
+				</div>
 			</div>
 
 			<div>
@@ -50,3 +62,10 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.input-container {
+		display: grid;
+		gap: 0.5rem;
+	}
+</style>

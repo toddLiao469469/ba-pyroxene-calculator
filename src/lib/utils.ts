@@ -113,3 +113,17 @@ export const getEventPyroxene = (
 	}
 	return 0;
 };
+
+export const pyroxeneToRolls = (
+	pyroxene: number
+): {
+	guarantee: number;
+	restRolls: number;
+} => {
+	const rolls = Math.floor(pyroxene / 120);
+	const guarantee = Math.floor(rolls / 200);
+	return {
+		guarantee,
+		restRolls: rolls - guarantee * 200
+	};
+};

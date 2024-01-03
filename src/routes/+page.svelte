@@ -33,7 +33,8 @@
 	<Typography variant="h2" class="my-4">專案資訊</Typography>
 
 	<p>
-		特別感謝原版作者<span class="text-teal-500">村長</span>、<span class="text-teal-500">夜貓</span>、<span class="text-teal-500">貓貓豪可愛</span>
+		特別感謝原版作者<span class="text-teal-500">村長</span>、<span class="text-teal-500">夜貓</span
+		>、<span class="text-teal-500">貓貓豪可愛</span>
 	</p>
 	<Typography variant="h3" class="mt-4">專案說明</Typography>
 	<p>
@@ -93,7 +94,7 @@
 	<p>🚧 wip 🚧</p>
 </section>
 
-<style scoped>
+<style>
 	p {
 		@apply text-sm;
 	}
