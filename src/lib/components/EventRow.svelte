@@ -68,7 +68,7 @@
 	</p>
 </div>
 
-<style scoped>
+<style>
 	p {
 		font-size: small;
 	}

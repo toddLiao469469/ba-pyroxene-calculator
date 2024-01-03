@@ -6,10 +6,9 @@
 
 	let currentPath = browser ? location.pathname : '';
 
-    afterNavigate(() => {
-        currentPath = browser ? location.pathname : '';
-    })
-
+	afterNavigate(() => {
+		currentPath = browser ? location.pathname : '';
+	});
 </script>
 
 <header class="flex justify-start items-center py-2">
@@ -27,6 +26,3 @@
 	</div>
 	<ColorModeToggle class="ml-auto mr-4" />
 </header>
-
-<style scoped>
-</style>
