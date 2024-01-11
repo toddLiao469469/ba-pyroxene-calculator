@@ -5,6 +5,10 @@
 	import { pyroxene } from '$store/pyroxene';
 
 	$: targetDate = $pyroxene?.targetDate?.toDate(TW_TIMEZONE);
+	const today = new Date().setHours(0, 0, 0, 0);
+	const includedEvents = events.filter(({ date }) => {
+		return new Date(date).setHours(0, 0, 0, 0) >= today;
+	});
 </script>
 
 <div>
@@ -18,7 +22,7 @@
 		<p class="col-span-2">最後獲得</p>
 	</div>
 
-	{#each events as event, index}
+	{#each includedEvents as event, index}
 		<EventRow
 			class="grid grid-cols-12 gap-x-2 gap-y-4 max-w-4xl min-h-14  items-center"
 			{index}
