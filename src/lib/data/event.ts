@@ -34,7 +34,7 @@ export interface IEvent {
 	raidLocationType?: RaidLocationType;
 }
 
-export const events:IEvent[] = [
+export const events: IEvent[] = [
 	{
 		date: '2024-01-09',
 		name: '維護',
@@ -92,7 +92,7 @@ export const events:IEvent[] = [
 		name: '7日登入獎勵\n 「2.5周年記念ログインボーナス」',
 		pyroxene: 1250,
 		eventType: EventType.Normal,
-		RaidPyroxeneType: RaidPyroxeneType.Basic,
+		RaidPyroxeneType: RaidPyroxeneType.Basic
 	},
 	{
 		date: '2024-02-13',
