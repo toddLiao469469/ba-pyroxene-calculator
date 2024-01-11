@@ -42,10 +42,6 @@
 			class="text-pink-300">小春及吹雪版</span
 		>進行開發，歡迎各位提供意見與建議。
 	</p>
-	<p>
-		這個小專案也是我第一次使用 svelte 進行開發，所以有些地方可能會有不太好的地方，歡迎各位開 PR
-		來幫助我改善這個專案。
-	</p>
 	<Typography variant="h4" class="mt-4">問題回報與功能討論</Typography>
 	<p>
 		如果是有關 Bug 回報或者功能可以的話請至 <a
@@ -55,11 +51,7 @@
 			<span class="text-cyan-500"> Github </span>
 		</a> 開 Issue，這樣我才能夠更好的追蹤問題。
 	</p>
-	<p>
-		如果是非開發者的朋友可以使用 DC 私訊我，我的 ID 是 <span class="text-cyan-500"
-			>toddliao469469</span
-		>
-	</p>
+
 	<Typography variant="h4" class="mt-4">TODO</Typography>
 
 	<ul class="ml-6 list-disc [&>li]:mt-2">

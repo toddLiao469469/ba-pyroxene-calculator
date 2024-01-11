@@ -1,38 +1,42 @@
-# create-svelte
+# ba-pyroxene-calculator 
+🚧 WIP 🚧  
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+這是一個為了手機遊戲「蔚藍檔案」所做的網頁小工具，是根據[巴哈貼文](https://forum.gamer.com.tw/C.php?bsn=38898&snA=4506)為基礎所開發的。
 
-## Creating a project
+## 簡介
 
-If you're seeing this, you've probably already done this step. Congrats!
+這個小專案也是我第一次使用 svelte 進行開發，所以有些地方可能會有不太好的地方，歡迎各位開 PR 來幫助我改善這個專案。
+
+### Tech stack 及如何協作
+
+目前並沒有 coding style 的規範，只有基本的 linter rule  
+所以只要能夠跑起來的話沒問題的話就可以開 PR。
+
+目前比較主要的技術是：
+
+- Svelte + Svelte-kit
+- tailwind css
+- shadcn/svelte
+- Lucide
+
+但除了 tailwind css
+以外，基本上我都沒有在工作上使用過所以可能會有一些奇怪的地方，歡迎各位提供意見與建議。
+
+## 開發
+
+請先確保有安裝
+
+- node.js
+- pnpm
+
+### 首次安裝專案
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+pnpm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### 本地運行專案
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm run dev
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
