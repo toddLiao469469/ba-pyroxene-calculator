@@ -2,6 +2,8 @@
 	"name": "ba-pyroxene-calculator",
 	"version": "0.0.1",
 	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"prepare": "husky install",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -13,7 +15,17 @@
 		"test:integration": "playwright test",
 		"test:unit": "vitest"
 	},
+	"lint-staged": {
+		"*.{html,scss,css,svelte,ts,js}": "prettier --write --plugin-search-dir=."
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
 	"devDependencies": {
+		"@commitlint/cli": "^18.4.4",
+		"@commitlint/config-conventional": "^18.4.4",
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "^1.28.1",
@@ -30,6 +42,8 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-prettier": "^5.1.2",
 		"eslint-plugin-svelte": "^2.35.1",
+		"husky": "^8.0.0",
+		"lint-staged": "^15.2.0",
 		"postcss": "^8.4.32",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
