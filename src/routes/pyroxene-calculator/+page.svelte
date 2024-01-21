@@ -54,7 +54,14 @@
 
 				<div class="input-container">
 					<Label>活動挑戰任務完成比率 : {$pyroxene.questCompletedRate}%</Label>
-					<Slider bind:value={$pyroxene.questCompletedRate} max={100} step={1} />
+					<Slider
+						value={[$pyroxene.questCompletedRate]}
+						max={100}
+						step={1}
+						onValueChange={(value) => {
+							$pyroxene.questCompletedRate = value[0];
+						}}
+					/>
 				</div>
 			</div>
 
