@@ -10,12 +10,20 @@
 	import PyroxeneResult from '$lib/views/PyroxeneResult.svelte';
 	import EventTable from '$lib/views/EventTable.svelte';
 
-	import { pyroxene } from '$store/pyroxene';
+	import { pyroxene, resetPyroxene } from '$store/pyroxene';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <div class="px-4 w-full md:w-4/5 lg:w-2/3 mx-auto">
 	<div class="flex justify-center flex-col">
 		<Typography variant="h1">青輝石計算機</Typography>
+		<Button
+			variant="destructive"
+			class="w-24  ml-auto"
+			on:click={() => {
+				resetPyroxene();
+			}}>清除資料</Button
+		>
 
 		<div class="grid gap-y-12 items-center mt-12">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-12">
