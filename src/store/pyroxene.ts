@@ -13,7 +13,7 @@ import { events } from '$lib/data/event';
 import { MonthlyCard, RaidRank } from '$lib/types';
 import { TW_TIMEZONE } from '$lib/contants';
 
-const today = new Date();
+const getToday = () => new Date();
 
 /**
  * 其實有關 `targetDate` 的部分會這麼複雜是因為
@@ -50,19 +50,19 @@ interface PyroxeneStore {
 	recruitmentTicket: number;
 }
 
-const initPyroxeneStore: PyroxeneStore = {
+const getInitPyroxeneStore = (): PyroxeneStore => ({
 	initPyroxene: '24000',
 	dailyPyroxeneOfArena: '45',
 	ticket: 0,
-	targetDate: fromDate(addDays(30)(today), TW_TIMEZONE),
+	targetDate: fromDate(addDays(30)(getToday()), TW_TIMEZONE),
 	raidRank: RaidRank.Rank_1,
 	monthlyCard: MonthlyCard.Both,
 	questCompletedRate: 100,
 	recruitmentTicket: 0
-};
+});
 
 export const pyroxene = writable<PyroxeneStore>(
-	storedPyroxene ? storedPyroxene : initPyroxeneStore
+	storedPyroxene ? storedPyroxene : getInitPyroxeneStore()
 );
 
 pyroxene.subscribe((value) => {
@@ -77,11 +77,11 @@ pyroxene.subscribe((value) => {
 });
 
 export const resetPyroxene = () => {
-	pyroxene.update(() => initPyroxeneStore);
+	pyroxene.update(() => getInitPyroxeneStore());
 };
 
 export const daysOfCalculation = derived<typeof pyroxene, number>(pyroxene, ($pyroxene) => {
-	return differenceInCalendarDays(today)($pyroxene.targetDate?.toDate(TW_TIMEZONE));
+	return differenceInCalendarDays(getToday())($pyroxene.targetDate?.toDate(TW_TIMEZONE));
 });
 
 export const pyroxeneOfArena = derived(
@@ -108,7 +108,7 @@ export const pyroxeneOfEvents = derived(pyroxene, ($pyroxene) => {
 		}
 		const date = new Date(event.date);
 
-		return isBefore($pyroxene.targetDate.toDate(TW_TIMEZONE), date) && isAfter(today, date);
+		return isBefore($pyroxene.targetDate.toDate(TW_TIMEZONE), date) && isAfter(getToday(), date);
 	});
 	const rate = $pyroxene.questCompletedRate / 100;
 
