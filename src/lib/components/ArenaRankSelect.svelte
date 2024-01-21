@@ -40,7 +40,7 @@
 	</Select.Trigger>
 	<Select.Content>
 		<Select.Group>
-			<Select.Label>總力戰檔位</Select.Label>
+			<Select.Label>競技場每日青輝石</Select.Label>
 			{#each arenaRankList as raidRank}
 				<Select.Item value={raidRank.value} label={raidRank.label}>{raidRank.label}</Select.Item>
 			{/each}

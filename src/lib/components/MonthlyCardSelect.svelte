@@ -34,7 +34,7 @@
 	</Select.Trigger>
 	<Select.Content>
 		<Select.Group>
-			<Select.Label>總力戰檔位</Select.Label>
+			<Select.Label>月卡</Select.Label>
 			{#each monthlyCardList as raidRank}
 				<Select.Item value={raidRank.value} label={raidRank.label}>{raidRank.label}</Select.Item>
 			{/each}
