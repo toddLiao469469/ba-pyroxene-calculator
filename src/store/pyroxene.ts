@@ -50,19 +50,19 @@ interface PyroxeneStore {
 	recruitmentTicket: number;
 }
 
+const initPyroxeneStore: PyroxeneStore = {
+	initPyroxene: '24000',
+	dailyPyroxeneOfArena: '45',
+	ticket: 0,
+	targetDate: fromDate(addDays(30)(today), TW_TIMEZONE),
+	raidRank: RaidRank.Rank_1,
+	monthlyCard: MonthlyCard.Both,
+	questCompletedRate: 100,
+	recruitmentTicket: 0
+};
+
 export const pyroxene = writable<PyroxeneStore>(
-	storedPyroxene
-		? storedPyroxene
-		: {
-				initPyroxene: 24_000,
-				dailyPyroxeneOfArena: '45',
-				ticket: 0,
-				targetDate: fromDate(addDays(30)(today), TW_TIMEZONE),
-				raidRank: RaidRank.Rank_1,
-				monthlyCard: MonthlyCard.Both,
-				questCompletedRate: 100,
-				recruitmentTicket: 0
-			}
+	storedPyroxene ? storedPyroxene : initPyroxeneStore
 );
 
 pyroxene.subscribe((value) => {
@@ -75,6 +75,10 @@ pyroxene.subscribe((value) => {
 		localStorage.setItem('pyroxene', JSON.stringify(draftData));
 	}
 });
+
+export const resetPyroxene = () => {
+	pyroxene.update(() => initPyroxeneStore);
+};
 
 export const daysOfCalculation = derived<typeof pyroxene, number>(pyroxene, ($pyroxene) => {
 	return differenceInCalendarDays(today)($pyroxene.targetDate?.toDate(TW_TIMEZONE));
