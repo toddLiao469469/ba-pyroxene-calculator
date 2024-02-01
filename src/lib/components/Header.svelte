@@ -3,6 +3,7 @@
 	import { Home } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { afterNavigate } from '$app/navigation';
+	import { version } from '$app/environment';
 
 	let currentPath = browser ? location.pathname : '';
 
@@ -24,5 +25,8 @@
 	>
 		<a href="/pyroxene-calculator"> 青輝石計算機 </a>
 	</div>
-	<ColorModeToggle class="ml-auto mr-4" />
+	<div class="ml-auto">
+		現在版本： v{version}
+	</div>
+	<ColorModeToggle class="ml-4 mr-4" />
 </header>
