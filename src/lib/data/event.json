@@ -1,5 +1,5 @@
 [
-  {
+	{
 		"date": "2024-01-09",
 		"name": "維護",
 		"pyroxene": 600,
@@ -50,7 +50,6 @@
 		"eventType": "CHALLENGE",
 		"description": "挑戰"
 	},
-
 	{
 		"date": "2024-02-06",
 		"name": "7日登入獎勵\n 「2.5周年記念ログインボーナス」",
@@ -76,5 +75,113 @@
 		"raidArmorType": "SPECIAL",
 		"raidLocationType": "OUTDOOR",
 		"description": "結算"
+	},
+	{
+		"date": "2024-02-20",
+		"name": "室外大雞",
+		"pyroxene": 650,
+		"eventType": "ELIMINATION_RAID",
+		"RaidPyroxeneType": "BASIC",
+		"description": "大決戰基礎"
+	},
+	{
+		"date": "2024-02-20",
+		"name": "【復刻】百夜堂海之家FC計畫",
+		"pyroxene": 2710,
+		"eventType": "NORMAL",
+		"description": "基礎 + 維護"
+	},
+	{
+		"date": "2024-02-21",
+		"name": "【復刻】百夜堂海之家FC計畫",
+		"pyroxene": 300,
+		"eventType": "CHALLENGE",
+		"description": "挑戰"
+	},
+	{
+		"date": "2024-02-27",
+		"name": "室外大雞",
+		"pyroxene": 650,
+		"eventType": "ELIMINATION_RAID",
+		"RaidPyroxeneType": "BASIC",
+		"description": "結算"
+	},
+	{
+		"date": "2024-02-27",
+		"name": "學園漫研同人物語～\n2人所追求的最終回～",
+		"pyroxene": 2100,
+		"eventType": "NORMAL",
+		"description": "基礎 + 維護"
+	},
+	{
+		"date": "2024-02-28",
+		"name": "學園漫研同人物語～\n2人所追求的最終回～",
+		"pyroxene": 540,
+		"eventType": "CHALLENGE",
+		"description": "挑戰"
+	},
+	{
+		"date": "2024-03-5",
+		"name": "室外氣墊船",
+		"eventType": "RAID",
+		"pyroxene": 1250,
+		"RaidPyroxeneType": "BASIC",
+		"raidArmorType": "HEAVY",
+		"raidLocationType": "OUTDOOR",
+		"description": "總力戰基礎+成就"
+	},
+	{
+		"date": "2024-03-12",
+		"name": "室外氣墊船",
+		"eventType": "RAID",
+		"RaidPyroxeneType": "RANKING",
+		"raidArmorType": "HEAVY",
+		"raidLocationType": "OUTDOOR",
+		"description": "結算"
+	},
+	{
+		"date": "2024-03-12",
+		"name": "【復刻】On your mark ＠millennium 奇普托斯晄輪大祭",
+		"pyroxene": 1580,
+		"eventType": "NORMAL",
+		"description": "基礎 + 維護"
+	},
+	{
+		"date": "2024-03-13",
+		"name": "【復刻】On your mark ＠millennium 奇普托斯晄輪大祭",
+		"pyroxene": 1080,
+		"eventType": "CHALLENGE",
+		"description": "挑戰"
+	},
+	{
+		"date": "2024-03-19",
+		"name": "室内黑白",
+		"pyroxene": 650,
+		"eventType": "ELIMINATION_RAID",
+		"RaidPyroxeneType": "BASIC",
+		"description": "大決戰基礎"
+	},
+	{
+		"date": "2024-03-21",
+		"name": "【復刻】Get Set, Go! 奇普托斯晄輪大祭",
+		"pyroxene": 1440,
+		"eventType": "NORMAL",
+		"description": "基礎 + 維護"
+	},
+	{
+		"date": "2024-03-22",
+		"name": "【復刻】Get Set, Go! 奇普托斯晄輪大祭",
+		"pyroxene": 1080,
+		"eventType": "CHALLENGE",
+		"description": "挑戰"
+	},
+	{
+		"date": "2024-03-26",
+		"name": "室内黑白",
+		"pyroxene": 650,
+		"eventType": "ELIMINATION_RAID",
+		"RaidPyroxeneType": "BASIC",
+		"description": "結算"
 	}
+	
 ]
