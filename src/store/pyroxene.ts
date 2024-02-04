@@ -95,9 +95,25 @@ export const pyroxeneOfEvents = derived(pyroxene, ($pyroxene) => {
 	});
 	const rate = $pyroxene.questCompletedRate / 100;
 
+	const generalEvent = includedEvents.filter((event) => event.eventType === 'NORMAL');
+	const raidEvent = includedEvents.filter((event) => event.eventType === 'RAID');
+	const challengeEvent = includedEvents.filter((event) => event.eventType === 'CHALLENGE');
+	const eliminationRaidEvent = includedEvents.filter(
+		(event) => event.eventType === 'ELIMINATION_RAID'
+	);
+
 	return {
-		basicPyroxene: includedEvents.reduce((acc, event) => {
+		generalEvent: generalEvent.reduce((acc, event) => {
+			return acc + getEventPyroxene(event, $pyroxene.raidRank);
+		}, 0),
+		raidEvent: raidEvent.reduce((acc, event) => {
+			return acc + getEventPyroxene(event, $pyroxene.raidRank);
+		}, 0),
+		challengeEvent: challengeEvent.reduce((acc, event) => {
 			return acc + getEventPyroxene(event, $pyroxene.raidRank, 1);
+		}, 0),
+		eliminationRaidEvent: eliminationRaidEvent.reduce((acc, event) => {
+			return acc + getEventPyroxene(event, $pyroxene.raidRank);
 		}, 0),
 		pyroxene: includedEvents.reduce((acc, event) => {
 			return acc + getEventPyroxene(event, $pyroxene.raidRank, rate);
