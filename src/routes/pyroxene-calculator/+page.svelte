@@ -1,17 +1,23 @@
 <script lang="ts">
-	import Calendar from '$lib/components/Calendar.svelte';
-	import Typography from '$lib/components/Typography.svelte';
+	import { fromDate } from '@internationalized/date';
+
+	import { pyroxene, resetPyroxene } from '$store/pyroxene';
+	import { TW_TIMEZONE } from '$lib/contants';
+
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
 	import { Slider } from '$lib/components/ui/slider';
+	import { Button } from '$lib/components/ui/button';
+	import Calendar from '$lib/components/Calendar.svelte';
+	import Typography from '$lib/components/Typography.svelte';
 	import RaidRankSelect from '$lib/components/RaidRankSelect.svelte';
 	import MonthlyCardSelect from '$lib/components/MonthlyCardSelect.svelte';
 	import ArenaRankSelect from '$lib/components/ArenaRankSelect.svelte';
 	import PyroxeneResult from '$lib/views/PyroxeneResult.svelte';
 	import EventTable from '$lib/views/EventTable.svelte';
 
-	import { pyroxene, resetPyroxene } from '$store/pyroxene';
-	import { Button } from '$lib/components/ui/button';
+	let calendarDate = fromDate(new Date($pyroxene.targetDate), TW_TIMEZONE);
+	$: $pyroxene.targetDate = calendarDate.toDate();
 </script>
 
 <div class="px-4 w-full md:w-4/5 lg:w-2/3 mx-auto">
@@ -37,7 +43,7 @@
 				</div>
 				<div class="input-container">
 					<Label for="daysValue">要存到的日期</Label>
-					<Calendar bind:value={$pyroxene.targetDate}></Calendar>
+					<Calendar bind:value={calendarDate} />
 				</div>
 				<div class="input-container">
 					<Label>競技場每日青輝石</Label>
