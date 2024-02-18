@@ -95,14 +95,41 @@ export const pyroxeneOfEvents = derived(pyroxene, ($pyroxene) => {
 	});
 	const rate = $pyroxene.questCompletedRate / 100;
 
-	return {
-		basicPyroxene: includedEvents.reduce((acc, event) => {
-			return acc + getEventPyroxene(event, $pyroxene.raidRank, 1);
-		}, 0),
-		pyroxene: includedEvents.reduce((acc, event) => {
-			return acc + getEventPyroxene(event, $pyroxene.raidRank, rate);
-		}, 0)
-	};
+	const result = includedEvents.reduce(
+		(acc, event) => {
+			if (event.eventType === 'RAID') {
+				acc.raidEvent += getEventPyroxene(event, $pyroxene.raidRank);
+				acc.pyroxene += getEventPyroxene(event, $pyroxene.raidRank);
+				return acc;
+			}
+			if (event.eventType === 'CHALLENGE') {
+				acc.challengeEvent += getEventPyroxene(event, $pyroxene.raidRank, 1);
+				acc.pyroxene += getEventPyroxene(event, $pyroxene.raidRank, rate);
+				return acc;
+			}
+			if (event.eventType === 'ELIMINATION_RAID') {
+				acc.eliminationRaidEvent += getEventPyroxene(event, $pyroxene.raidRank);
+				acc.pyroxene += getEventPyroxene(event, $pyroxene.raidRank);
+				return acc;
+			}
+			if (event.eventType) {
+				acc.generalEvent += getEventPyroxene(event, $pyroxene.raidRank);
+				acc.pyroxene += getEventPyroxene(event, $pyroxene.raidRank);
+				return acc;
+			}
+
+			return acc;
+		},
+		{
+			generalEvent: 0,
+			raidEvent: 0,
+			challengeEvent: 0,
+			eliminationRaidEvent: 0,
+			pyroxene: 0
+		}
+	);
+
+	return result;
 });
 
 export const totalPyroxene = derived(

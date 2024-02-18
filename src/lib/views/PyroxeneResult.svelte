@@ -33,8 +33,15 @@
 			每日任務＋登入＋每週任務青輝石 : {$systemPyroxene}
 		</p>
 		<p class="col-span-2 text-primary">
-			活動 + (挑戰任務 * 完成比例) : {$pyroxeneOfEvents.basicPyroxene} * {$pyroxene.questCompletedRate}%
-			= {$pyroxeneOfEvents.pyroxene}
+			活動基礎獎勵及維修 + 總力戰 + 大決戰 + (挑戰任務 * 完成比例) : <br />
+			{$pyroxeneOfEvents.generalEvent}
+			+
+			{$pyroxeneOfEvents.raidEvent}
+			+
+			{$pyroxeneOfEvents.eliminationRaidEvent}
+			+
+			{$pyroxeneOfEvents.challengeEvent}
+			* {$pyroxene.questCompletedRate}% = {$pyroxeneOfEvents.pyroxene}
 		</p>
 
 		<p class="col-span-2">預計會存到：</p>

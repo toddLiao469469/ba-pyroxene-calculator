@@ -105,7 +105,7 @@ export const getEventPyroxene = (
 		case EventType.Raid:
 			return getRaidPyroxene(raidRank);
 		case EventType.Challenge:
-			return (event.pyroxene || 0) * questCompletedRate;
+			return Math.round((event.pyroxene || 0) * questCompletedRate);
 		default:
 			if (event.pyroxene) {
 				return event.pyroxene;

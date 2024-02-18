@@ -7,9 +7,10 @@
 
 	export let event: IEvent;
 	export let raidRank: RaidRank;
+	export let targetDate: Date;
 
 	const today = new Date().setHours(0, 0, 0, 0);
-	$: isAfterToday = differenceInCalendarDays(today, new Date(event.date)) >= 0;
+	$: isAfterTargetDate = differenceInCalendarDays(targetDate, new Date(event.date)) > 0;
 	$: eventDateFromToday = differenceInCalendarDays(today, new Date(event.date));
 
 	function getRowColor(event: IEvent) {
@@ -31,10 +32,10 @@
 		return '';
 	}
 
-	$: rowColor = isAfterToday && getRowColor(event);
+	$: rowColor = isAfterTargetDate && getRowColor(event);
 </script>
 
-<div class={cn($$props.class)} class:opacity-20={!isAfterToday}>
+<div class={cn($$props.class)}>
 	<p class=" hidden col-span-1 lg:block">
 		{format('MM/dd', event.date)}
 	</p>
@@ -56,15 +57,13 @@
 			<p>{event.name}</p>
 		{/if}
 	</p>
-	<p class="col-span-2">{getEventPyroxene(event, raidRank)}</p>
-	<p class="col-span-2">
+	<p class="col-span-2" class:opacity-20={isAfterTargetDate}>{getEventPyroxene(event, raidRank)}</p>
+	<p class="col-span-2" class:opacity-20={isAfterTargetDate}>
 		<span
-			class:text-rose-400={isAfterToday &&
-				(event.eventType === EventType.Challenge || event.eventType === EventType.Raid)}
+			class:text-rose-400={event.eventType === EventType.Challenge ||
+				event.eventType === EventType.Raid}
 		>
-			{isAfterToday
-				? Math.floor(getEventPyroxene(event, raidRank, $pyroxene.questCompletedRate / 100))
-				: 0}
+			{Math.floor(getEventPyroxene(event, raidRank, $pyroxene.questCompletedRate / 100))}
 		</span>
 	</p>
 </div>
