@@ -1,0 +1,42 @@
+[
+  {
+    "version": "v0.0.5",
+    "releaseDate": "2024/02/19",
+    "descriptions": [
+			{
+        "type":"FIX",
+        "content":"修正「活動列表」樣式青輝石數值錯誤"
+			},
+			{
+        "type":"FIX",
+        "content":"修正青輝石「試算結果」計算錯誤的問題"
+      },
+      {
+        "type": "FEATURE",
+        "content": "在首頁新增「更新紀錄」的區塊"
+      },
+      {
+        "type":"IMPROVEMENT",
+        "content":"優化日期資料型別"
+      }
+    ]
+  },
+	{
+		"version": "v0.0.4",
+		"releaseDate": "2024/02/02",
+		"descriptions": [
+			{
+				"type": "FIX",
+				"content": "修復了「活動列表」樣式錯誤的問題"
+			},
+			{
+				"type": "FEATURE",
+				"content": "在 Header 上顯示最新版本號"
+			},
+			{
+				"type": "DATA",
+				"content": "更新「活動列表」的資料至 2024/03/26"
+			}
+		]
+	}
+]

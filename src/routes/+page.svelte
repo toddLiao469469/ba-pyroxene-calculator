@@ -2,6 +2,7 @@
 	import { Github } from 'lucide-svelte';
 
 	import Typography from '$lib/components/Typography.svelte';
+	import ReleaseNoteTable from '$lib/views/ReleaseNoteTable.svelte';
 </script>
 
 <svelte:head>
@@ -81,9 +82,9 @@
 	</p>
 
 	<Typography variant="h3" class="mt-4">更新紀錄</Typography>
-	<p>🚧 wip 🚧</p>
-	<Typography variant="h3" class="mt-4">Contributors</Typography>
-	<p>🚧 wip 🚧</p>
+	<ReleaseNoteTable />
+	<!-- <Typography variant="h3" class="mt-4">Contributors</Typography>
+	<p>🚧 wip 🚧</p> -->
 </section>
 
 <style>
