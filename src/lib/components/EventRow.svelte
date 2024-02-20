@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { differenceInCalendarDays, format } from 'date-fns/fp';
+
+	import { EventType, type IEvent, RaidArmorType } from '$lib/data/event';
 	import type { RaidRank } from '$lib/types';
 	import { cn, getEventPyroxene } from '$lib/utils';
-	import { EventType, type IEvent, RaidArmorType } from '$lib/data/event';
 	import { pyroxene } from '$store/pyroxene';
 
 	export let event: IEvent;

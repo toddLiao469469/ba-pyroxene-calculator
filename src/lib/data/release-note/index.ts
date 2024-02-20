@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import releaseNoteData from './release-note.json';
 
 export enum ReleaseNoteType {

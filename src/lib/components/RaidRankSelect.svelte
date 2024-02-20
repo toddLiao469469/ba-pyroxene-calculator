@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Selected } from 'bits-ui';
+
 	import * as Select from '$lib/components/ui/select';
 	import { RaidRank } from '$lib/types';
 

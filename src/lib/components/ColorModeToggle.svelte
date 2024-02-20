@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button';
-	import { Sun, Moon } from 'lucide-svelte';
-
+	import { Moon, Sun } from 'lucide-svelte';
 	import { toggleMode } from 'mode-watcher';
+
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <Button on:click={toggleMode} variant="outline" size="icon" class={$$props.class}>

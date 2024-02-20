@@ -1,9 +1,11 @@
 <script lang="ts">
-	import ColorModeToggle from './ColorModeToggle.svelte';
 	import { Home } from 'lucide-svelte';
+
 	import { browser } from '$app/environment';
-	import { afterNavigate } from '$app/navigation';
 	import { version } from '$app/environment';
+	import { afterNavigate } from '$app/navigation';
+
+	import ColorModeToggle from './ColorModeToggle.svelte';
 
 	let currentPath = browser ? location.pathname : '';
 

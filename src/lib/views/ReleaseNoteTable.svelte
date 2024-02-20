@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { ReleaseNoteType, releaseNotes } from '$lib/data/release-note';
+	import { releaseNotes, ReleaseNoteType } from '$lib/data/release-note';
 
 	function releaseNoteTypeToEmoji(type: ReleaseNoteType) {
 		switch (type) {

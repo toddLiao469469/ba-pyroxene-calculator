@@ -1,11 +1,11 @@
 import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import { cubicOut } from 'svelte/easing';
 import type { TransitionConfig } from 'svelte/transition';
-
-import { MonthlyCard, RaidRank } from './types';
+import { twMerge } from 'tailwind-merge';
 
 import { EventType, type IEvent } from '$lib/data/event';
+
+import { MonthlyCard, RaidRank } from './types';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
