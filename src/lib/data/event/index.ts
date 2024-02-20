@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import eventData from './event.json';
 
 export enum EventType {

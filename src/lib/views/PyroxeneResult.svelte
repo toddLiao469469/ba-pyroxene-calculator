@@ -1,16 +1,16 @@
 <script lang="ts">
+	import { format } from 'date-fns/fp';
+
 	import {
+		daysOfCalculation,
 		pyroxene,
-		totalPyroxene,
-		systemPyroxene,
-		pyroxeneOfMonthlyCard,
 		pyroxeneOfArena,
 		pyroxeneOfEvents,
-		daysOfCalculation,
-		totalAvailableRolls
+		pyroxeneOfMonthlyCard,
+		systemPyroxene,
+		totalAvailableRolls,
+		totalPyroxene
 	} from '$store/pyroxene';
-
-	import { format } from 'date-fns/fp';
 </script>
 
 <div>

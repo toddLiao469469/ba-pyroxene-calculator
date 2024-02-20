@@ -1,6 +1,7 @@
 <script lang="ts">
-	import * as Select from '$lib/components/ui/select';
 	import type { Selected } from 'bits-ui';
+
+	import * as Select from '$lib/components/ui/select';
 
 	const arenaRankList = [
 		{ value: '45', label: '45' },
