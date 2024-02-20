@@ -32,7 +32,7 @@
 		return '';
 	}
 
-	$: rowColor = isAfterTargetDate && getRowColor(event);
+	$: rowColor = getRowColor(event);
 </script>
 
 <div class={cn($$props.class)}>

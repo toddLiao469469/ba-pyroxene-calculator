@@ -26,7 +26,7 @@
 		<a href="/pyroxene-calculator"> 青輝石計算機 </a>
 	</div>
 	<div class="ml-auto">
-		現在版本： v{version}
+		v{version}
 	</div>
 	<ColorModeToggle class="ml-4 mr-4" />
 </header>

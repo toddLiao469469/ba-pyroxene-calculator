@@ -20,7 +20,7 @@
 	$: $pyroxene.targetDate = calendarDate.toDate();
 </script>
 
-<div class="px-4 w-full md:w-4/5 lg:w-2/3 mx-auto">
+<div class="px-6 w-full md:w-4/5 lg:w-2/3 mx-auto">
 	<div class="flex justify-center flex-col">
 		<Typography variant="h1">青輝石計算機</Typography>
 		<Button
