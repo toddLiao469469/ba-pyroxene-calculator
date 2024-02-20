@@ -1,0 +1,36 @@
+name: Version Change Detection
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+
+jobs:
+  detect-version-change:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Check for version changes in package.json
+        id: check_changes
+        run: |
+          VERSION_CHANGE=$(git diff HEAD^ HEAD -- package.json | grep '"version":' | wc -l)
+          if [ "$VERSION_CHANGE" -eq 0 ]; then
+            echo "No version change detected in package.json."
+            echo "VERSION_CHANGED=false" >> $GITHUB_ENV
+          else
+            echo "Version change detected in package.json."
+            echo "VERSION_CHANGED=true" >> $GITHUB_ENV
+          fi
+
+      - name: Create and Push Tag if version changed
+        if: env.VERSION_CHANGED == 'true'
+        run: |
+          PACKAGE_VERSION=$(jq -r '.version' package.json)
+          git tag "$PACKAGE_VERSION"
+          git push --tags
