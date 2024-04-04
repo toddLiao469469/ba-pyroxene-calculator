@@ -1,16 +1,15 @@
 <script lang="ts">
-	import { EventType, RaidArmorType, events, type IEvent } from '$lib/data/event';
-	import { pyroxene } from '$store/pyroxene';
-	import * as Table from '$lib/components/ui/table';
 	import { differenceInCalendarDays, format } from 'date-fns/fp';
+
+	import * as Table from '$lib/components/ui/table';
+	import { EventType, type IEvent, RaidArmorType } from '$lib/data/event';
+	import { RaidRank } from '$lib/types';
 	import { getEventPyroxene } from '$lib/utils';
 
-	const today = new Date().setHours(0, 0, 0, 0);
-	const targetDate = $pyroxene.targetDate;
-
-	const includedEvents = events.filter(({ date }) => {
-		return new Date(date).setHours(0, 0, 0, 0) >= today;
-	});
+	export let targetDate = new Date();
+	export let raidRank: RaidRank = RaidRank.Rank_1;
+	export let questCompletedRate = 100;
+	export let events: IEvent[] = [];
 
 	function getRowColor(event: IEvent) {
 		if (event.eventType === EventType.Raid) {
@@ -33,15 +32,15 @@
 </script>
 
 <Table.Root>
-	<Table.Header>
-		<Table.Row>
-			<Table.Head>日期</Table.Head>
-			<Table.Head class="w-1/2">活動名稱</Table.Head>
-			<Table.Head class="w-1/3">青輝石獲得數</Table.Head>
+	<Table.Header class="sticky top-0">
+		<Table.Row class="bg-primary">
+			<Table.Head class="text-white">日期</Table.Head>
+			<Table.Head class="w-1/2 text-white">活動名稱</Table.Head>
+			<Table.Head class="w-1/3 text-white">青輝石獲得數</Table.Head>
 		</Table.Row>
 	</Table.Header>
 	<Table.Body>
-		{#each includedEvents as event, i (i)}
+		{#each events as event, i (i)}
 			<Table.Row>
 				<Table.Cell>
 					{format('MM/dd', event.date)}
@@ -63,9 +62,7 @@
 						class:text-red-300={event.eventType === EventType.Challenge ||
 							event.eventType === EventType.Raid}
 					>
-						{Math.floor(
-							getEventPyroxene(event, $pyroxene.raidRank, $pyroxene.questCompletedRate / 100)
-						)}
+						{Math.floor(getEventPyroxene(event, raidRank, questCompletedRate / 100))}
 					</span>
 				</Table.Cell>
 			</Table.Row>

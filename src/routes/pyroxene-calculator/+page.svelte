@@ -11,12 +11,19 @@
 	import { Label } from '$lib/components/ui/label';
 	import { Slider } from '$lib/components/ui/slider';
 	import { TW_TIMEZONE } from '$lib/contants';
+	import { events } from '$lib/data/event';
 	import EventTable from '$lib/views/EventTable.svelte';
 	import PyroxeneResult from '$lib/views/PyroxeneResult.svelte';
 	import { pyroxene, resetPyroxene } from '$store/pyroxene';
 
 	let calendarDate = fromDate(new Date($pyroxene.targetDate), TW_TIMEZONE);
 	$: $pyroxene.targetDate = calendarDate.toDate();
+
+	const today = new Date().setHours(0, 0, 0, 0);
+
+	const includedEvents = events.filter(({ date }) => {
+		return new Date(date).setHours(0, 0, 0, 0) >= today;
+	});
 </script>
 
 <div class="px-6 w-full md:w-4/5 lg:w-2/3 mx-auto">
@@ -77,7 +84,12 @@
 
 			<div>
 				<Typography variant="h3">活動列表</Typography>
-				<EventTable />
+				<EventTable
+					targetDate={$pyroxene.targetDate}
+					raidRank={$pyroxene.raidRank}
+					questCompletedRate={$pyroxene.questCompletedRate}
+					events={includedEvents}
+				/>
 			</div>
 		</div>
 	</div>
