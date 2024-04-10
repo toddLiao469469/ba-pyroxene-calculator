@@ -103,6 +103,9 @@ export const getEventPyroxene = (
 ): number => {
 	switch (event.eventType) {
 		case EventType.Raid:
+			if (event.raidPyroxeneType === 'BASIC') {
+				return event.pyroxene || 0;
+			}
 			return getRaidPyroxene(raidRank);
 		case EventType.Challenge:
 			return Math.round((event.pyroxene || 0) * questCompletedRate);
