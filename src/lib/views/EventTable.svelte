@@ -2,7 +2,7 @@
 	import { differenceInCalendarDays, format } from 'date-fns/fp';
 
 	import * as Table from '$lib/components/ui/table';
-	import { EventType, type IEvent, RaidArmorType } from '$lib/data/event';
+	import { EventType, type IEvent, RaidArmorType, RaidPyroxeneType } from '$lib/data/event';
 	import { RaidRank } from '$lib/types';
 	import { getEventPyroxene } from '$lib/utils';
 
@@ -10,7 +10,7 @@
 	export let raidRank: RaidRank = RaidRank.Rank_1;
 	export let questCompletedRate = 100;
 	export let events: IEvent[] = [];
-
+	console.log(events);
 	function getRowColor(event: IEvent) {
 		if (event.eventType === EventType.Raid) {
 			switch (event.raidArmorType) {
@@ -60,7 +60,8 @@
 					<span
 						class:opacity-20={differenceInCalendarDays(targetDate, new Date(event.date)) > 0}
 						class:text-red-300={event.eventType === EventType.Challenge ||
-							event.eventType === EventType.Raid}
+							(event.eventType === EventType.Raid &&
+								event.raidPyroxeneType === RaidPyroxeneType.Ranking)}
 					>
 						{Math.floor(getEventPyroxene(event, raidRank, questCompletedRate / 100))}
 					</span>

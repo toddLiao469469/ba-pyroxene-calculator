@@ -46,6 +46,7 @@ type RaidEvent = {
 	eventType: EventType.Raid;
 	raidArmorType: RaidArmorType;
 	raidLocationType: RaidLocationType;
+	raidPyroxeneType: RaidPyroxeneType;
 };
 
 type EliminationRaidEvent = {
@@ -65,7 +66,7 @@ const eventSchema = z.object({
 	name: z.string(),
 	pyroxene: z.number().optional(),
 	eventType: z.nativeEnum(EventType),
-	RaidPyroxeneType: z.nativeEnum(RaidPyroxeneType).optional(),
+	raidPyroxeneType: z.nativeEnum(RaidPyroxeneType).optional(),
 	description: z.string().optional(),
 	raidArmorType: z.nativeEnum(RaidArmorType).optional(),
 	raidLocationType: z.nativeEnum(RaidLocationType).optional()
