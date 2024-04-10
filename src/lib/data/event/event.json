@@ -9,7 +9,7 @@
 		"date": "2024-01-09",
 		"name": "室内葛利果",
 		"eventType": "RAID",
-		"RaidPyroxeneType": "RANKING",
+		"raidPyroxeneType": "RANKING",
 		"raidArmorType": "LIGHT",
 		"raidLocationType": "INDOOR",
 		"description": "結算"
@@ -19,7 +19,7 @@
 		"name": "市街壽司",
 		"pyroxene": 650,
 		"eventType": "ELIMINATION_RAID",
-		"RaidPyroxeneType": "BASIC",
+		"raidPyroxeneType": "BASIC",
 		"description": "大決戰獎勵"
 	},
 	{
@@ -55,14 +55,14 @@
 		"name": "7日登入獎勵\n 「2.5周年記念ログインボーナス」",
 		"pyroxene": 1250,
 		"eventType": "NORMAL",
-		"RaidPyroxeneType": "BASIC"
+		"raidPyroxeneType": "BASIC"
 	},
 	{
 		"date": "2024-02-13",
 		"name": "室外GOZ",
 		"eventType": "RAID",
 		"pyroxene": 1250,
-		"RaidPyroxeneType": "BASIC",
+		"raidPyroxeneType": "BASIC",
 		"raidArmorType": "SPECIAL",
 		"raidLocationType": "OUTDOOR",
 		"description": "總力戰基礎+成就"
@@ -71,7 +71,7 @@
 		"date": "2024-02-13",
 		"name": "室外GOZ",
 		"eventType": "RAID",
-		"RaidPyroxeneType": "RANKING",
+		"raidPyroxeneType": "RANKING",
 		"raidArmorType": "SPECIAL",
 		"raidLocationType": "OUTDOOR",
 		"description": "結算"
@@ -81,7 +81,7 @@
 		"name": "室外大雞",
 		"pyroxene": 650,
 		"eventType": "ELIMINATION_RAID",
-		"RaidPyroxeneType": "BASIC",
+		"raidPyroxeneType": "BASIC",
 		"description": "大決戰基礎"
 	},
 	{
@@ -103,7 +103,7 @@
 		"name": "室外大雞",
 		"pyroxene": 650,
 		"eventType": "ELIMINATION_RAID",
-		"RaidPyroxeneType": "BASIC",
+		"raidPyroxeneType": "BASIC",
 		"description": "結算"
 	},
 	{
@@ -125,7 +125,7 @@
 		"name": "室外氣墊船",
 		"eventType": "RAID",
 		"pyroxene": 1250,
-		"RaidPyroxeneType": "BASIC",
+		"raidPyroxeneType": "BASIC",
 		"raidArmorType": "HEAVY",
 		"raidLocationType": "OUTDOOR",
 		"description": "總力戰基礎+成就"
@@ -134,7 +134,7 @@
 		"date": "2024-03-12",
 		"name": "室外氣墊船",
 		"eventType": "RAID",
-		"RaidPyroxeneType": "RANKING",
+		"raidPyroxeneType": "RANKING",
 		"raidArmorType": "HEAVY",
 		"raidLocationType": "OUTDOOR",
 		"description": "結算"
@@ -158,7 +158,7 @@
 		"name": "室内黑白",
 		"pyroxene": 650,
 		"eventType": "ELIMINATION_RAID",
-		"RaidPyroxeneType": "BASIC",
+		"raidPyroxeneType": "BASIC",
 		"description": "大決戰基礎"
 	},
 	{
@@ -180,8 +180,154 @@
 		"name": "室内黑白",
 		"pyroxene": 650,
 		"eventType": "ELIMINATION_RAID",
-		"RaidPyroxeneType": "BASIC",
+		"raidPyroxeneType": "BASIC",
 		"description": "結算"
+	},
+	{
+		"date": "2024-04-02",
+		"name": "Trip-Trap-Train",
+		"pyroxene": 2320,
+		"eventType": "NORMAL",
+		"description": "基礎 + 維護"
+	},
+	{
+		"date": "2024-04-02",
+		"name": "Trip-Trap-Train",
+		"pyroxene": 450,
+		"eventType": "CHALLENGE",
+		"description": "挑戰"
+	},
+	{
+		"date": "2024-04-09",
+		"name": "市街大蛇",
+		"pyroxene": 650,
+		"description": "總力戰基礎",
+		"eventType": "RAID",
+		"raidPyroxeneType": "BASIC",
+		"raidArmorType": "HEAVY",
+		"raidLocationType": "URBAN"
+	},
+	{
+		"date": "2024-04-16",
+		"name": "市街大蛇",
+		"pyroxene": 1200,
+		"eventType": "RAID",
+		"raidPyroxeneType": "BASIC",
+		"raidArmorType": "HEAVY",
+		"raidLocationType": "URBAN",
+		"description": "結算"
+	},
+	{
+		"date": "2024-04-16",
+		"name": "任務Area24",
+		"pyroxene": 1160,
+		"eventType": "NORMAL"
+	},
+	{
+		"date": "2024-04-22",
+		"name": "小劇情",
+		"pyroxene": 180,
+		"eventType": "NORMAL"
+	},
+	{
+		"date": "2024-04-22",
+		"name": "室外壽司",
+		"pyroxene": 650,
+		"eventType": "ELIMINATION_RAID",
+		"raidPyroxeneType": "BASIC",
+		"description": "大決戰基礎"
+	},
+	{
+		"date": "2024-04-22",
+		"name": "室外壽司",
+		"pyroxene": 1200,
+		"eventType": "ELIMINATION_RAID",
+		"raidPyroxeneType": "RANKING",
+		"description": "結算"
+	},
+	{
+		"date": "2024-04-29",
+		"name": "【聯動活動】\n暮科學的勇者紀錄Fantasy",
+		"pyroxene": 2320,
+		"eventType": "NORMAL",
+		"description": "基礎 + 維護"
+	},
+	{
+		"date": "2024-04-30",
+		"name": "【聯動活動】\n暮科學的勇者紀錄Fantasy",
+		"pyroxene": 1200,
+		"eventType": "CHALLENGE",
+		"description": "挑戰"
+	},
+	{
+		"date": "2024-05-05",
+		"name": "7日登入獎勵\n「コラボ開催記念ログインボーナス」",
+		"pyroxene": 600,
+		"eventType": "NORMAL"
+	},
+	{
+		"date": "2024-05-07",
+		"name": "室外眼球",
+		"pyroxene": 650,
+		"eventType": "RAID",
+		"raidPyroxeneType": "BASIC",
+		"raidArmorType": "HEAVY",
+		"raidLocationType": "OUTDOOR",
+		"description": "總力戰基礎"
+	},
+	{
+		"date": "2024-05-14",
+		"name": "珮娜聽2號店成就",
+		"pyroxene": 480,
+		"eventType": "NORMAL"
+	},
+	{
+		"date": "2024-05-14",
+		"name": "室外眼球",
+		"pyroxene": 1200,
+		"eventType": "RAID",
+		"raidPyroxeneType": "RANKING",
+		"raidArmorType": "HEAVY",
+		"description": "結算"
+	},
+	{
+		"date": "2024-05-14",
+		"name": "戰術對抗戰換季",
+		"pyroxene": 1900,
+		"eventType": "NORMAL"
+	},
+	{
+		"date": "2024-05-14",
+		"name": "主線劇情：Vol. 5第一章上篇\n+ 維護",
+		"pyroxene": 1380,
+		"eventType": "NORMAL"
+	},
+	{
+		"date": "2024-05-21",
+		"name": "市街HOD",
+		"pyroxene": 650,
+		"eventType": "ELIMINATION_RAID",
+		"raidPyroxeneType": "BASIC",
+		"description": "大決戰基礎"
+	},
+	{
+		"date": "2024-05-28",
+		"name": "市街HOD",
+		"pyroxene": 1200,
+		"eventType": "ELIMINATION_RAID",
+		"raidPyroxeneType": "RANKING",
+		"description": "結算"
+	},
+	{
+		"date": "2024-05-28",
+		"name": "主線劇情：Vol. 5第一章下篇 + 維護",
+		"pyroxene": 1380,
+		"eventType": "NORMAL"
+	},
+	{
+		"date": "2024-06-01",
+		"name": "指南任務\n「百鬼夜行德龍祭めぐり」",
+		"pyroxene": 1200,
+		"eventType": "NORMAL"
 	}
-	
 ]
