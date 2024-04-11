@@ -1,5 +1,6 @@
-# ba-pyroxene-calculator 
-🚧 WIP 🚧  
+# ba-pyroxene-calculator
+
+🚧 WIP 🚧
 
 ## 簡介
 
