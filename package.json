@@ -70,6 +70,7 @@
 		"lucide-solid": "^0.303.0",
 		"lucide-svelte": "^0.303.0",
 		"mode-watcher": "^0.1.2",
+		"svelte-sonner": "^0.3.22",
 		"tailwind-merge": "^2.2.0",
 		"tailwind-variants": "^0.1.19",
 		"tailwindcss-animate": "^1.0.7",
