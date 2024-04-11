@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Home } from 'lucide-svelte';
+	import { Github, Home } from 'lucide-svelte';
 
 	import { browser } from '$app/environment';
 	import { version } from '$app/environment';
@@ -21,14 +21,13 @@
 		</a>
 	</div>
 
-	<div
-		class="w-40 flex justify-center items-center"
-		class:text-primary={currentPath === '/pyroxene-calculator'}
-	>
-		<a href="/pyroxene-calculator"> 青輝石計算機 </a>
+	<div class="ml-auto mr-4 flex items-center gap-x-4">
+		<div>
+			{version}
+		</div>
+		<a href="https://github.com/toddLiao469469/ba-pyroxene-calculator" target="_blank">
+			<Github />
+		</a>
+		<ColorModeToggle />
 	</div>
-	<div class="ml-auto">
-		{version}
-	</div>
-	<ColorModeToggle class="ml-4 mr-4" />
 </header>
