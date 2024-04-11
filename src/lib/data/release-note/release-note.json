@@ -1,11 +1,29 @@
 [
 	{
+		"version": "v0.0.7",
+		"releaseDate": "2024/04/12",
+		"descriptions": [
+			{
+				"type": "FIX",
+				"content": "修正上次儲存時的「目標存石日」已經過了所造成的記算錯誤"
+			},
+			{
+				"type": "Feature",
+				"content": "載入暫存資料成功時會跳出通知"
+			},
+			{
+				"type": "IMPROVEMENT",
+				"content": "優化首頁及 Header 的樣式"
+			}
+		]
+	},
+	{
 		"version": "v0.0.6",
 		"releaseDate": "2024/04/11",
 		"descriptions": [
 			{
 				"type": "FIX",
-				"content": "修正青輝石「活動列表」總力戰基礎清輝石錯誤的問題"
+				"content": "修正「活動列表」總力戰基礎清輝石錯誤的問題"
 			},
 			{
 				"type": "IMPROVEMENT",
