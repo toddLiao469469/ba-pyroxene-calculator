@@ -1,5 +1,6 @@
 import { addDays, differenceInCalendarDays, isAfter, isBefore } from 'date-fns/fp';
 import { derived, writable } from 'svelte/store';
+import { toast } from 'svelte-sonner';
 
 import { browser } from '$app/environment';
 import { events } from '$lib/data/event';
@@ -13,14 +14,37 @@ import {
 
 const getToday = () => new Date();
 
-const storedPyroxene = browser
-	? localStorage.getItem('pyroxene')
-		? {
-				...JSON.parse(localStorage.getItem('pyroxene') as string),
-				targetDate: new Date(JSON.parse(localStorage.getItem('pyroxene') as string).targetDate)
-			}
-		: null
-	: null;
+const getStoredPyroxene = () => {
+	if (browser && localStorage.getItem('pyroxene')) {
+		let targetDate: Date;
+		let toastDescription = '';
+		const targetDateInStorage = new Date(
+			JSON.parse(localStorage.getItem('pyroxene') as string).targetDate
+		);
+
+		if (isBefore(getToday())(targetDateInStorage)) {
+			targetDate = addDays(30)(getToday());
+			toastDescription = `上次儲存的存石日期為：${targetDateInStorage.toLocaleDateString()}已過期\n已重設為30天後`;
+		} else {
+			targetDate = targetDateInStorage;
+		}
+
+		toast.success('讀取暫存資料成功！', {
+			description: toastDescription,
+			position: 'top-center',
+			duration: 1500
+		});
+
+		return {
+			...JSON.parse(localStorage.getItem('pyroxene') as string),
+			targetDate
+		};
+	}
+
+	return null;
+};
+
+const storedPyroxene = getStoredPyroxene();
 
 interface PyroxeneStore {
 	initPyroxene: string;
