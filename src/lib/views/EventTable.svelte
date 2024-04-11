@@ -10,7 +10,7 @@
 	export let raidRank: RaidRank = RaidRank.Rank_1;
 	export let questCompletedRate = 100;
 	export let events: IEvent[] = [];
-	console.log(events);
+
 	function getRowColor(event: IEvent) {
 		if (event.eventType === EventType.Raid) {
 			switch (event.raidArmorType) {
